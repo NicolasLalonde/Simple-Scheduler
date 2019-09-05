@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Scheduler</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+
+    <canvas id='canvas1' class='canvas' width='1000' height='600'>
+      Canvas not supported
+    </canvas>
+
+    <script src='globals.js'></script>
+    <script src='eventClass.js'></script>
+    <script src='tools.js'></script>
+    <script src='graphics.js'></script>
+    <script src='eventHandlers.js'></script>
+
+
+
+    <form id='eventForm' action=''>
+      <label>Name:</label>
+      <input id='name' type='text' name='name' required />
+      <label>Description:</label>
+      <textarea id ='description', name='description', rows=3></textarea>
+      <input id='color' type='color' name='color' />
+      <input type='button' value='Add new event' onclick="newEventCreator()"/>
+
+
+
+    </form>
+
+    <div id='editPane'></div><!-- this is where the html gets inserted when an event is selected -->
+
+  </body>
+</html>
