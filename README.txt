@@ -1,7 +1,4 @@
 Scheduler V.0.0.2
-- A completely client-side scheduling tool
-
-Original Developer Nicolas Lalonde - All rights reserved
 
 
 
