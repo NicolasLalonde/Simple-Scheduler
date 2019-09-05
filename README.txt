@@ -30,6 +30,7 @@ TODO:
 -Duration change by grabbing and dragging the bottom of events
 -Garbage can to drag events into to delete them
 -ability to edit the minmax times/starting day of the week
+-Add server-side code to save and load schedules
 
 
 
