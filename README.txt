@@ -17,10 +17,6 @@ Features:
 -Time detector: changes the time according to where the event is
 -Selected event: click on an event to show a editing menu with name, color, description and duration
 
-CHANGELOG V.0.0.2
--Fixed title text not wrapping
--Fixed event selection bug: would only register the first word in the title
-
 TODO:
 -Reshape the UI with css to make it more user friendly
 -Save/Load schedules
