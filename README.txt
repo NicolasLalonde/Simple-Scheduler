@@ -2,7 +2,6 @@ Scheduler V.0.0.2
 
 
 
-Use: double click scheduler.html
 
 Notice: click an event to select it, you may have to scroll down to see the select menu
 
