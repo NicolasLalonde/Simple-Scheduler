@@ -101,11 +101,11 @@ Event.prototype.snapLocation = function(){
 generates a formatted time string (eg 8:15am) from the grid coordinates
 */
 Event.prototype.getTimeString = function(){
-  var totalMinutes = (this.getGridFromXY() % 288) * 5;
-  var minuteText = (totalMinutes % 60).toString();
-  if(minuteText.length < 2){minuteText = "0" + minuteText}
-  var hour = Math.floor(totalMinutes/60);
-  return convert24to12(hour, ':' + minuteText);
+  return getTimeFromGrid(this.getGridFromXY())
+}
+
+Event.prototype.getEndTimeString = function(){
+  return getTimeFromGrid(this.getGridFromXY() + this.duration)
 }
 
 //object editor

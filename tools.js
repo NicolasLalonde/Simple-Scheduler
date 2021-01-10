@@ -42,3 +42,11 @@ function deleteObjectFromArray(obj, arr){
 		if(obj === arr[i]) arr.splice(i, 1);
 	}
 }
+
+function getTimeFromGrid(grid){
+	var totalMinutes = (grid % 288) * 5;
+  var minuteText = (totalMinutes % 60).toString();
+  if(minuteText.length < 2){minuteText = "0" + minuteText}
+  var hour = Math.floor(totalMinutes/60);
+  return convert24to12(hour, ':' + minuteText);
+}

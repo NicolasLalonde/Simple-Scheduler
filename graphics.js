@@ -17,17 +17,37 @@ var drawCanvas = function(){
 			context.fillRect(event.x, event.y, EVENTSBOXWIDTH, event.height); //fill event box
 			context.fillStyle = event.textcolor;
       context.font = EVENTITLEFONT;
-			wrapText(context,//title
-        event.name,
+
+      let startTime;
+      let timeStringWidth;
+      let firstLineHeight = event.y + TEXTOFFSET + LINEHEIGHT
+      if(event.getGridFromXY() < 2017){//if within calendar print hour
+        startTime = event.getTimeString()
+        endTime = event.getEndTimeString()
+        timeString = startTime + " " + endTime
+        timeStringWidth = Math.max(context.measureText(startTime).width, context.measureText(endTime).width)
+        wrapText(context,
+          timeString,
+          event.x + EVENTSBOXWIDTH - timeStringWidth - TEXTOFFSET,//closest to right border
+          firstLineHeight,
+          timeStringWidth,//max width, other time will go on next line
+          LINEHEIGHT*2,//maxheigth
+          LINEHEIGHT);//line height offset
+      } else {//not within calendar
+        timeStringWidth = 0
+      }
+
+
+      //print event title
+			wrapText(context,
+        event.name,//title
         event.x + TEXTOFFSET,
-        event.y + TEXTOFFSET + LINEHEIGHT,
-        EVENTSBOXWIDTH - context.measureText(event.getTimeString()).width - TEXTOFFSET * 2,//maxwidth
+        firstLineHeight,
+        EVENTSBOXWIDTH - timeStringWidth - TEXTOFFSET * 2,//maxwidth
         LINEHEIGHT*2,//maxheigth
         LINEHEIGHT);
 
-      if(event.getGridFromXY() < 2017){//if within calendar print hour
-        context.fillText(event.getTimeString(), event.x + EVENTSBOXWIDTH - context.measureText(event.getTimeString()).width - TEXTOFFSET, event.y + TEXTOFFSET + LINEHEIGHT)
-      }
+
       context.font = EVENTFONT;
       //print description
 			wrapText(context,

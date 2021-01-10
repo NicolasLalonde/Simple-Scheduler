@@ -19,8 +19,8 @@ const HOUR_FONT = '8pt helvetica';
 const DAY_FONT = '10pt Helvetica';
 
 var FIVEMINUTEHEIGHT;
-var MINHOUR = 6;
-var MAXHOUR = 22;
+var MINHOUR = 8;
+var MAXHOUR = 24;
 
 const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
