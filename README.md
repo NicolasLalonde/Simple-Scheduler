@@ -2,7 +2,8 @@
 
 ## A client-side weekly scheduling tool
 
-To use, run Scheduler.html in your favorite web browser
+To use, run Scheduler.html in your favorite web browser.
+
 Notice: click an event to select it, you may have to scroll down to see the select menu
 
 Features:
