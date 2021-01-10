@@ -50,3 +50,29 @@ function getTimeFromGrid(grid){
   var hour = Math.floor(totalMinutes/60);
   return convert24to12(hour, ':' + minuteText);
 }
+
+//get event info needed for saving
+function serializeEvents(eventArray){
+	let serializedEvents = []
+	for(let event of eventArray){
+		let serialized = {};
+		serialized.name = event.name;
+	  serialized.description = event.description;
+	  serialized.color = event.color;
+	  serialized.grid = event.grid;
+	  serialized.duration = event.duration;
+		serializedEvents.push(serialized);
+	}
+	return serializedEvents;
+}
+
+
+//load an event array to the current event array
+function loadEvents(eventArray){
+	for(let event of eventArray){
+		let newEvent = new Event(event.name, event.description, event.color, event.grid, event.duration);
+	  newEvent.setGraphics();
+	  events.push(newEvent);
+	}
+	drawCanvas();
+}

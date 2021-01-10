@@ -103,9 +103,28 @@ function deleteSelectedEvent(){
   drawCanvas();
 }
 
+function localLoad() {
+  const selectedFile = document.getElementById('file-input').files[0];
+  var reader = new FileReader();
+  reader.onload = function(event) {
+    loadEvents(JSON.parse(event.target.result));//add events to event list
+  };
+  reader.readAsText(selectedFile);
+}
+
+//download a file with all events
+function localSave(){
+	var text = JSON.stringify(serializeEvents(events))
+  var element = document.getElementById('file-download');//dummy download link
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.click();//activate link
+}
+
+
 
 //add mouse down listener to our canvas object on content load
 document.addEventListener("DOMContentLoaded", function(event) {
   canvas.addEventListener("mousedown", handleMouseDown);
+  document.getElementById("file-input").addEventListener("change", localLoad, false);
   drawCanvas();
 });
